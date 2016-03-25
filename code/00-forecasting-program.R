@@ -44,18 +44,31 @@ setwd("/home/rstudio/projects/comp-2016/data/")
 #
 #-----------------------------------------------------------------------------#
 
-rawDat <- read.csv()
+rawDat <- read.csv("BFCom_R1.csv", header = TRUE)
 
-
-load("load-long.Rda")
+summary(rawDat)
+#load("load-long.Rda")
 #load("temp-final.Rda")
 
-load_weather <-
-  load.long %>%
-  arrange(tindx) %>%
-  filter(!is.na(load))
+#load_weather <-
+#  load.long %>%
+#  arrange(tindx) %>%
+#  filter(!is.na(load))
 
-summary(load_weather)
+#summary(load_weather)
+
+#-----------------------------------------------------------------------------#
+#
+# Explore and Visualize Data
+#
+#-----------------------------------------------------------------------------#
+
+summary(rawDat)
+
+
+densityplot(~Load_MW, data = rawDat)
+xyplot(Load_MW~T_act, data = rawDat)
+
 
 #-----------------------------------------------------------------------------#
 #
